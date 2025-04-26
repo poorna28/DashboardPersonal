@@ -1,0 +1,47 @@
+{
+  "parents": [
+    {
+      "id": "1",
+      "name": "charan",
+      "email": "john.doe@example.com",
+      "phone": "123-456-7890",
+      "occupation": "Software Developer",
+      "emergencyContactName": "Alice Doe",
+      "emergencyContactRelationship": "Sister",
+      "emergencyContactPhone": "123-456-7891"
+    },
+    {
+      "id": "2",
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "phone": "234-567-8901",
+      "occupation": "Teacher",
+      "emergencyContactName": "Bob Smith",
+      "emergencyContactRelationship": "Brother",
+      "emergencyContactPhone": "234-567-8902"
+    },
+    {
+      "id": "3",
+      "name": "Michael Johnson",
+      "email": "michael.johnson@example.com",
+      "phone": "345-678-9012",
+      "occupation": "Engineer",
+      "emergencyContactName": "Linda Johnson",
+      "emergencyContactRelationship": "Wife",
+      "emergencyContactPhone": "345-678-9013"
+    },
+    {
+      "id": "4",
+      "name": "Emily Davis",
+      "email": "emily.davis@example.com",
+      "phone": "456-789-0123",
+      "occupation": "Doctor",
+      "emergencyContactName": "Sarah Davis",
+      "emergencyContactRelationship": "Mother",
+      "emergencyContactPhone": "456-789-0124"
+    },
+    {
+      "id": "695d"
+    }
+  ]
+}

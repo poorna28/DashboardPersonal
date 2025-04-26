@@ -1,0 +1,99 @@
+/* Collapsed Sidebar */
+.p-sidebar.collapsed {
+  width: 60px;
+}
+
+.p-sidebar.expanded {
+  width: 200px;
+}
+
+/* General Sidebar Styling */
+.p-sidebar {
+  /* transition: width 0.3s; */
+  background-color: #333;
+  color: #fff;
+
+}
+
+.p-sidebar-header {
+  /* display: flex;
+  align-items: center;
+  padding: 10px; */
+  cursor: pointer;
+  color: #fff;
+}
+
+.p-sidebar-menu {
+  /* padding: 10px; */
+}
+
+.p-menuitem-link {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.menu-text {
+  margin-left: 10px;
+}
+
+/* Submenu Styling */
+.p-submenu {
+  padding-left: 10px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  max-height: 0; /* Initially collapsed */
+}
+
+/* Expanded Sidebar: Show Submenu */
+.p-sidebar.expanded .p-submenu {
+  max-height: 500px; /* Adjust according to content */
+  transition: max-height 0.3s ease-in-out;
+}
+
+/* Collapsed Sidebar: Hide Submenu */
+.p-sidebar.collapsed .p-submenu {
+  max-height: 0;
+  overflow: hidden;
+}
+
+.p-sidebar.collapsed .p-menuitem-link:hover + .p-submenu {
+  position: absolute;
+  left: 60px;
+  background-color: #444;
+  border-radius: 4px;
+  z-index: 1;
+  width: 200px;
+  padding: 5px 0;
+  max-height: none; /* Ensure visibility */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Submenu Item Styling */
+.p-submenu-link {
+  display: block;
+  padding: 10px 15px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer; /* Change cursor */
+  transition: background-color 0.2s;
+}
+
+.p-submenu-link:hover {
+  background-color: #555;
+}
+
+/* Collapsed Arrow Style */
+.collapsed-arrow {
+  margin-left: auto;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.p-sidebar.expanded .collapsed-arrow {
+  transform: rotate(90deg); /* Rotate when expanded */
+}

@@ -1,0 +1,48 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Alice Brown",
+      "email": "alice.brown@example.com",
+      "phone": "123-456-7890",
+      "department": "Engineering",
+      "position": "Software Engineer",
+      "emergencyContactName": "Tom Brown",
+      "emergencyContactRelationship": "Husband",
+      "emergencyContactPhone": "123-456-7891"
+    },
+    {
+      "id": "2",
+      "name": "David Wilson",
+      "email": "david.wilson@example.com",
+      "phone": "234-567-8901",
+      "department": "Marketing",
+      "position": "Marketing Manager",
+      "emergencyContactName": "Ella Wilson",
+      "emergencyContactRelationship": "Wife",
+      "emergencyContactPhone": "234-567-8902"
+    },
+    {
+      "id": "3",
+      "name": "Sophia Martinez",
+      "email": "sophia.martinez@example.com",
+      "phone": "345-678-9012",
+      "department": "Human Resources",
+      "position": "HR Specialist",
+      "emergencyContactName": "Carlos Martinez",
+      "emergencyContactRelationship": "Brother",
+      "emergencyContactPhone": "345-678-9013"
+    },
+    {
+      "id": "4",
+      "name": "James Lee",
+      "email": "james.lee@example.com",
+      "phone": "456-789-0123",
+      "department": "Finance",
+      "position": "Financial Analyst",
+      "emergencyContactName": "Anna Lee",
+      "emergencyContactRelationship": "Mother",
+      "emergencyContactPhone": "456-789-0124"
+    }
+  ]
+}

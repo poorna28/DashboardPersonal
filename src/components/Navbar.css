@@ -1,0 +1,24 @@
+
+.navbar-nav {
+    margin-left: auto;
+    top: 0; /* Align to top */
+    z-index: 1000; /* Ensure it's above other content */
+    
+  }
+  
+  .nav-item {
+    margin-left: 15px; /* Optional: adds space between the items */
+  }
+  
+  .nav-link {
+    display: flex;
+    align-items: center; /* Align the icon and text vertically */
+  }
+  
+  .nav-link svg {
+    margin-right: 5px; /* Optional: adds space between the icon and text */
+    
+    
+
+  }
+  
