@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../services/api";
 
 
 const initialUser = {
@@ -18,11 +19,17 @@ function EditUser(props){
 
         
         const fetchUser = async()=>{
-            try{
-                const response = await axios.get('http://localhost:3034/users/' + props.userId);
-                if(response){
-                    setUserInfo(response.data);
-                }
+        //     try{
+        //         const response = await axios.get('http://localhost:3034/users/' + props.userId);
+        //         if(response){
+        //             setUserInfo(response.data);
+        //         }
+        // }
+        try {
+            const response = await api.getUser(props.userId);
+            if (response) {
+              setUserInfo(response.data);
+            }
         }
         catch(e){
             console.log(e);
@@ -31,7 +38,8 @@ function EditUser(props){
 
         const EditOldUser = async()=>{
             try{
-                const response = await axios.put('http://localhost:3034/users/' +props.userId, userInfo);
+                // const response = await axios.put('http://localhost:3034/users/' +props.userId, userInfo);
+                const response = await api.updateUser(props.userId, userInfo);
                 if(response){
                     props.setUserEdited();
          }

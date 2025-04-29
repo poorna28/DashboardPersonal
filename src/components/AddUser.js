@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../services/api";
 
 
 const initialUser = {
@@ -13,11 +14,17 @@ function AddUser(props){
 
 
         const AddNewUser = async()=>{
-            try{
-                const response = await axios.post('http://localhost:3034/users' , userInfo);
-                if(response){
-                    props.setUserAdded();
-         }
+        //     try{
+        //         const response = await axios.post('http://localhost:3034/users' , userInfo);
+        //         if(response){
+        //             props.setUserAdded();
+        //  }
+
+        try {
+            const response = await api.createUser(userInfo);
+            if (response) {
+              props.setUserAdded();
+            }
         }
         catch(e){
             console.log(e);

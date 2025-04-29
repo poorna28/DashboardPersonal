@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import api from "../services/api";
 
 
 const initialUser = {
@@ -17,7 +18,8 @@ function VisibleUser(props){
 
         const fetchUser = async()=>{
             try{
-                const response = await axios.get('http://localhost:3034/users/' + props.userId);
+                // const response = await axios.get('http://localhost:3034/users/' + props.userId);
+                const response = await api.getUser(props.userId);
                 if(response){
                     setUserInfo(response.data);
                 }
