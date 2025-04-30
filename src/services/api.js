@@ -45,6 +45,13 @@ export default {
   deleteUser(id) {
     return api.delete(`${config.api.endpoints.users}/${id}`);
   },
+  login(userData) {
+    return api.post(config.api.endpoints.login, userData);
+  },
+  signUpUser(userData) {
+    return api.post(config.api.endpoints.users, userData); // Use /users endpoint consistently
+  }
+  
   
   // Add other API calls here as needed
 };
