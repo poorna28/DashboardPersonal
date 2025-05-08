@@ -1,79 +1,102 @@
 .login-container {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    min-height: 100vh;
-    padding: 2rem;
-  }
-  
-  .login-card {
-    width: 100%;
-    max-width: 500px;
-    border-radius: 12px !important;
-    border: none;
-  }
-  
-  .login-card .p-card-title {
-    font-size: 1.8rem;
-    color: #2c3e50;
-    text-align: center;
-    margin-bottom: 0.5rem;
-  }
-  
-  .login-card .p-card-subtitle {
-    color: #6c757d;
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-  
-  .login-card .p-card-body {
-    padding: 2rem;
-  }
-  
-  .login-card .p-card-content {
-    padding: 0;
-  }
-  
-  .login-button {
-    background-color: #6366f1;
-    border: 1px solid #6366f1;
-    transition: all 0.3s ease;
-  }
-  
-  .login-button:hover {
-    background-color: #4f46e5 !important;
-    border-color: #4f46e5 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .login-button:active {
-    transform: translateY(0);
-  }
-  
-  .login-button .p-button-icon {
-    margin-left: 0.5rem;
-  }
-  
-  .p-inputtext:enabled:hover {
-    border-color: #6366f1 !important;
-  }
-  
-  .p-inputtext:enabled:focus {
-    box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.2) !important;
-    border-color: #6366f1 !important;
-  }
-  
-  .p-password-input {
-    width: 100%;
-  }
-  
-  .text-primary {
-    color: #6366f1 !important;
-  }
-  
-  .no-underline {
-    text-decoration: none;
-  }
-  
-  .p-divider.p-divider-horizontal {
-    margin: 1.5rem 0;
-  }
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.login-card .p-card-title {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  text-align: center;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.login-card .p-card-subtitle {
+  color: #6c757d;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.login-card .p-card-body {
+  padding: 2rem;
+}
+
+.p-field {
+  margin-bottom: 1.5rem;
+}
+
+.p-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.p-inputtext {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.p-inputtext:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.2);
+}
+
+.login-button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #6366f1;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-button:active {
+  transform: translateY(0);
+}
+
+.text-primary {
+  color: #6366f1;
+  font-weight: 600;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.p-divider {
+  margin: 1.5rem 0;
+  text-align: center;
+  color: #6c757d;
+}
+
+.p-divider-content {
+  background: #ffffff;
+  padding: 0 1rem;
+}

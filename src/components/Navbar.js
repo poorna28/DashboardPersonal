@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import { IoNotificationsCircleOutline } from "react-icons/io5";
 import { RiAccountPinCircleFill } from "react-icons/ri";
 import { IoSearchCircleSharp } from "react-icons/io5";
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../AuthContext'; // Import the auth context
-import './Navbar.css';
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../AuthContext"; // Import the auth context
+import "./Navbar.css";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -16,22 +16,24 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div className="container-fluid">
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <span className="nav-link"><IoSearchCircleSharp/>Search</span>
-            </li>
-            <li className="nav-item">
-              <span className="nav-link"><IoNotificationsCircleOutline/>Notifications</span>
-            </li>
-            <li className="nav-item">
-              <span className="nav-link" onClick={handleLogoutClick}>
-                <RiAccountPinCircleFill/>Log-out ({user?.name || 'User'})
-              </span>
-            </li>
-          </ul>
+    <nav className="navbar">
+      <div className="navbar-container">
+        <div className="navbar-left">
+          <span className="navbar-brand">MyApp</span>
+        </div>
+        <div className="navbar-right">
+          <div className="nav-item">
+            <IoSearchCircleSharp size={24} className="nav-icon" />
+            <span className="nav-text">Search</span>
+          </div>
+          <div className="nav-item">
+            <IoNotificationsCircleOutline size={24} className="nav-icon" />
+            <span className="nav-text">Notifications</span>
+          </div>
+          <div className="nav-item" onClick={handleLogoutClick}>
+            <RiAccountPinCircleFill size={24} className="nav-icon" />
+            <span className="nav-text">Log-out ({user?.name || "User"})</span>
+          </div>
         </div>
       </div>
     </nav>

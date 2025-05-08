@@ -49,9 +49,8 @@ export default {
     return api.post(config.api.endpoints.login, userData);
   },
   signUpUser(userData) {
-    return api.post(config.api.endpoints.users, userData); // Use /users endpoint consistently
-  }
-  
-  
+    return api.post(config.api.endpoints.signup, userData); // Fixed to use /signup endpoint
+  },
+
   // Add other API calls here as needed
 };
