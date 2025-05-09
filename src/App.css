@@ -191,4 +191,19 @@ btn {
     color: #007bff;
     cursor: pointer;
   }
-  
+#wrapper {
+  display: flex;
+  height: 100vh;
+  padding-top: 60px; /* Push content below navbar */
+  box-sizing: border-box; /* Prevent padding from increasing total height */
+}
+
+#page-content-wrapper {
+  flex: 1;
+  overflow-y: auto; /* Allow scrolling if content exceeds viewport */
+}
+
+.main-content {
+  padding: 20px; /* Inner spacing */
+  /* margin-top is redundant now due to #wrapper's padding-top */
+}

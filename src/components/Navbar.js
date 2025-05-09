@@ -16,27 +16,25 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="navbar">
+    <div className="navbar">
       <div className="navbar-container">
-        <div className="navbar-left">
-          <span className="navbar-brand">MyApp</span>
-        </div>
+      
         <div className="navbar-right">
-          <div className="nav-item">
+          <div className="nav-item" style={{ marginRight: '70%' }}>
             <IoSearchCircleSharp size={24} className="nav-icon" />
             <span className="nav-text">Search</span>
           </div>
-          <div className="nav-item">
+          <div className="nav-item" style={{ marginRight: '80%' }}>
             <IoNotificationsCircleOutline size={24} className="nav-icon" />
             <span className="nav-text">Notifications</span>
           </div>
-          <div className="nav-item" onClick={handleLogoutClick}>
+          <div className="nav-item" onClick={handleLogoutClick} style={{ marginRight: '92%' }}>
             <RiAccountPinCircleFill size={24} className="nav-icon" />
             <span className="nav-text">Log-out ({user?.name || "User"})</span>
           </div>
         </div>
       </div>
-    </nav>
+    </div>
   );
 };
 
