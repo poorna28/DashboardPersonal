@@ -3,12 +3,12 @@
   background-color: #2c3e50;
   color: #ecf0f1;
   height: 100vh;
-  transition: width 0.3s ease;
-  overflow: hidden;
-}
-
-.sidebar.expanded {
   width: 200px;
+  transition: width 0.3s ease;
+  position: relative;
+  z-index: 100;
+    position: fixed; /* Changed from relative to fixed */
+
 }
 
 .sidebar.collapsed {
@@ -39,6 +39,10 @@
   padding: 1rem 0;
 }
 
+.menu-item-container {
+  position: relative;
+}
+
 .menu-item {
   display: flex;
   align-items: center;
@@ -56,11 +60,13 @@
 .menu-text {
   margin-left: 1rem;
   font-size: 1rem;
+  flex-grow: 1;
 }
 
 /* Submenu */
 .submenu {
   padding-left: 1.5rem;
+  background-color: #1a252f;
 }
 
 .submenu-item {
@@ -78,7 +84,24 @@
 
 /* Collapsed Arrow */
 .collapsed-arrow {
-  margin-left: auto;
   color: #ecf0f1;
-  transition: transform 0.3s ease;
+}
+
+/* Hover Submenu for Collapsed State */
+.hover-submenu {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-width: 180px;
+  background-color: #2c3e50;
+  padding: 10px;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.hover-submenu .submenu-item {
+  padding: 8px 12px;
+  white-space: nowrap;
+  display: block;
 }
