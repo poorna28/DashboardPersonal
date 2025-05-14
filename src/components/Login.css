@@ -6,7 +6,6 @@
   align-items: center;
   padding: 2rem;
 }
-
 .login-card {
   width: 100%;
   max-width: 400px;
@@ -15,35 +14,29 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
-
 .login-card .p-card-title {
   font-size: 1.8rem;
   color: #2c3e50;
   text-align: center;
   margin: 1.5rem 0 0.5rem;
 }
-
 .login-card .p-card-subtitle {
   color: #6c757d;
   text-align: center;
   margin-bottom: 1.5rem;
 }
-
 .login-card .p-card-body {
   padding: 2rem;
 }
-
 .p-field {
   margin-bottom: 1.5rem;
 }
-
 .p-field label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
   color: #2c3e50;
 }
-
 .p-inputtext {
   width: 100%;
   padding: 0.75rem;
@@ -52,12 +45,10 @@
   font-size: 1rem;
   transition: border-color 0.3s ease;
 }
-
 .p-inputtext:focus {
   border-color: #6366f1;
   box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.2);
 }
-
 .login-button {
   width: 100%;
   padding: 0.75rem;
@@ -70,32 +61,26 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
 .login-button:hover {
   background-color: #4f46e5;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 .login-button:active {
   transform: translateY(0);
 }
-
 .text-primary {
   color: #6366f1;
   font-weight: 600;
 }
-
 .no-underline {
   text-decoration: none;
 }
-
 .p-divider {
   margin: 1.5rem 0;
   text-align: center;
   color: #6c757d;
 }
-
 .p-divider-content {
   background: #ffffff;
   padding: 0 1rem;
