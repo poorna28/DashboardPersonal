@@ -22,7 +22,7 @@ const Sidebar = () => {
 
       <div className="sidebar-menu">
         {/* Home */}
-        <Link className="menu-item" to="/">
+        <Link className="menu-item" >
           <FaHome size={20} />
           {isExpanded && <span className="menu-text">Home</span>}
         </Link>

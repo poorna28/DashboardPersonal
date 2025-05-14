@@ -16,23 +16,22 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar">
-      <div className="navbar-container">
-      
-        <div className="navbar-right">
-          <div className="nav-item" style={{ marginRight: '70%' }}>
-            <IoSearchCircleSharp size={24} className="nav-icon" />
-            <span className="nav-text">Search</span>
-          </div>
-          <div className="nav-item" style={{ marginRight: '80%' }}>
-            <IoNotificationsCircleOutline size={24} className="nav-icon" />
-            <span className="nav-text">Notifications</span>
-          </div>
-          <div className="nav-item" onClick={handleLogoutClick} style={{ marginRight: '92%' }}>
-            <RiAccountPinCircleFill size={24} className="nav-icon" />
-            <span className="nav-text">Log-out ({user?.name || "User"})</span>
-          </div>
+    <div className="container-fluid position-fixed top-0">
+      <div className="navbar d-flex justify-content-end">
+        <div className="nav-item p-2" >
+          <IoSearchCircleSharp size={24} className="nav-icon" />
+          <span className="nav-text">Search</span>
         </div>
+        <div className="nav-item p-2" >
+          <IoNotificationsCircleOutline size={24} className="nav-icon" />
+          <span className="nav-text">Notifications</span>
+        </div>
+        <div className="nav-item p-2" onClick={handleLogoutClick}>
+          <RiAccountPinCircleFill size={24} className="nav-icon" />
+          <span className="nav-text">Log-out ({user?.name || "User"})</span>
+        </div>
+
+
       </div>
     </div>
   );

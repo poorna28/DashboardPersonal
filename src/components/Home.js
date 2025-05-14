@@ -42,7 +42,7 @@ const Home = () => {
 
   return (
     <div className="main-content">
-      <div className="container mt-4">
+      <div className="  container mt-4">
         {/* Cards Section */}
         <div className="row mb-4">
           <div className="col-md-3">
