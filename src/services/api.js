@@ -8,39 +8,22 @@ const api = axios.create({
   },
 });
 
-// Add request interceptor for auth tokens if needed
 api.interceptors.request.use(
-  (config) => {
-    // You can modify requests here (e.g., add auth token)
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (config) => config,
+  (error) => Promise.reject(error)
 );
 
-// Add response interceptor for error handling
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
-    // Handle errors globally
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
 export default {
-  // User endpoints
   getUsers() {
     return api.get(config.api.endpoints.users);
   },
   getUser(id) {
     return api.get(`${config.api.endpoints.users}/${id}`);
-  },
-  createUser(userData) {
-    return api.post(config.api.endpoints.users, userData);
-  },
-  updateUser(id, userData) {
-    return api.put(`${config.api.endpoints.users}/${id}`, userData);
   },
   deleteUser(id) {
     return api.delete(`${config.api.endpoints.users}/${id}`);
@@ -49,8 +32,23 @@ export default {
     return api.post(config.api.endpoints.login, userData);
   },
   signUpUser(userData) {
-    return api.post(config.api.endpoints.signup, userData); // Fixed to use /signup endpoint
+    return api.post(config.api.endpoints.signup, userData);
   },
 
-  // Add other API calls here as needed
+  // Student API functions
+  studentsData() {
+    return api.get(config.api.endpoints.students);
+  },
+  getStudentById(id) {
+    return api.get(`${config.api.endpoints.students}/${id}`);
+  },
+  addstudentData(data) {
+    return api.post(config.api.endpoints.students, data);
+  },
+  editStudentsData(id, data) {
+    return api.put(`${config.api.endpoints.students}/${id}`, data);
+  },
+  deleteStudentsData(id) {
+    return api.delete(`${config.api.endpoints.students}/${id}`);
+  },
 };

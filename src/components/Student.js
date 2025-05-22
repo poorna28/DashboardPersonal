@@ -3,9 +3,11 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import axios from 'axios';
 import { Dialog } from 'primereact/dialog';
-import VisibleUser from './VisibleUser';
-import AddUser from './AddUser';
-import EditUser from './EditUser';
+import VisibleUser from './VisibleStudent';
+import AddUser from './AddStudent';
+import EditUser from './EditStudent';
+import api from "../services/api";
+
 
 import { ConfirmDialog } from 'primereact/confirmdialog'; 
 import { confirmDialog } from 'primereact/confirmdialog'; 
@@ -23,7 +25,7 @@ export default function Main() {
 
     const getAllUsers = async () => {
         try {
-            const response = await axios.get('http://localhost:3034/users');
+            const response = await api.studentsData();
             if(response){
                 setUsers(response.data);
             }
@@ -34,7 +36,7 @@ export default function Main() {
 
     const deleteUser = async (userId) => {
         try {
-            const response = await axios.delete('http://localhost:3034/users/' + userId);
+            const response = await api.deleteStudentsData(userId);
             if(response){
                 getAllUsers(); 
             }
@@ -87,7 +89,7 @@ export default function Main() {
                     <Column field="id" header="ID"></Column>
                     <Column field="name" header="NAME"></Column>
                     <Column field="email" header="E-MAIL"></Column>
-                    <Column field="phone" header="MOBILE"></Column>
+                    <Column field="mobile_number" header="MOBILE"></Column>
                     <Column header="Actions" body={Performactions} className='actionsbtn'></Column>
                 </DataTable>
             </div>

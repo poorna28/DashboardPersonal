@@ -4,7 +4,9 @@ const config = {
     endpoints: {
       users: "/users",
       login: "/login",
-      signup: "/signup", // Added signup endpoint
+      signup: "/signup",
+      students: '/students',
+
     },
   },
 };
