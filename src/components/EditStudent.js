@@ -69,7 +69,7 @@ function EditUser({ userId, setUserEdited }) {
             <span>Phone Number:</span>
             <input
               type="number"
-              value={userInfo.phone}
+              value={userInfo.mobile_number}
               className="form-group"
               placeholder="Enter your number"
               onChange={(e) => setUserInfo({ ...userInfo, mobile_number: e.target.value })}

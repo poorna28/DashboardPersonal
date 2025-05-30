@@ -26,6 +26,8 @@
 
 .main-page .main-list table .btn{
     margin: 0 5px;
+     z-index: 0;
+     position: relative;
 }
 .main-page .addbtn{
     text-align: right;
@@ -85,7 +87,6 @@
   }
 #page-content-wrapper {
   flex: 1;
-  overflow-y: auto; 
 }
 .main-content {
   z-index: -1; 

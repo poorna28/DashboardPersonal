@@ -85,7 +85,7 @@ export default function Main() {
                 </button>
             </div>
             <div className='main-list'>
-                <DataTable value={users} tableStyle={{ minWidth: '50rem' }}>
+                <DataTable value={users} stripedRows tableStyle={{ minWidth: '50rem' }}>
                     <Column field="id" header="ID"></Column>
                     <Column field="name" header="NAME"></Column>
                     <Column field="email" header="E-MAIL"></Column>
@@ -124,3 +124,6 @@ export default function Main() {
         </div>
     );
 }
+
+
+        
