@@ -13,7 +13,7 @@ function EditUser({ userId, setUserEdited }) {
 
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [userId]);
 
   const fetchUser = async () => {
     try {

@@ -1,129 +1,171 @@
 import React, { useState, useEffect } from 'react';
-import { DataTable } from 'primereact/datatable';
-import { Column } from 'primereact/column';
-import axios from 'axios';
-import { Dialog } from 'primereact/dialog';
 import VisibleUser from './VisibleStudent';
 import AddUser from './AddStudent';
 import EditUser from './EditStudent';
 import api from "../services/api";
-
-
-import { ConfirmDialog } from 'primereact/confirmdialog'; 
-import { confirmDialog } from 'primereact/confirmdialog'; 
+import './Student.css';
 
 export default function Main() {
     const [users, setUsers] = useState([]);
-    const [visibleShow , setVisibleShow] = useState(false);
-    const [selectedId , setSelectedId] = useState(null);
+    const [visibleShow, setVisibleShow] = useState(false);
+    const [selectedId, setSelectedId] = useState(null);
     const [addUser, setAddUser] = useState(false);
     const [editUser, setEditUser] = useState(false);
+    const [showConfirm, setShowConfirm] = useState(false);
+    const [deleteId, setDeleteId] = useState(null);
 
-    useEffect(()=>{
+    useEffect(() => {
         getAllUsers();
     }, []);
 
     const getAllUsers = async () => {
         try {
             const response = await api.studentsData();
-            if(response){
+            if (response) {
                 setUsers(response.data);
             }
-        } catch(e){
+        } catch (e) {
             console.log(e);
         }
-    }
+    };
 
-    const deleteUser = async (userId) => {
+    const deleteUser = async () => {
         try {
-            const response = await api.deleteStudentsData(userId);
-            if(response){
-                getAllUsers(); 
+            const response = await api.deleteStudentsData(deleteId);
+            if (response) {
+                getAllUsers();
+                setShowConfirm(false);
             }
-        } catch(e) {
+        } catch (e) {
             console.log(e);
         }
-    }
+    };
 
-    const deleteConfirmUser = (userId) => {
-        confirmDialog({
-            message: "Are you sure you want to delete this User data?",
-            header: "Confirmation",
-            icon: "pi pi-exclamation-triangle",
-            accept: () => deleteUser(userId), 
-        });
-    }
-
-    const Performactions = (btns) => {
-        return (
-            <>
-                <button className='btn btn-success' onClick={() =>{
-                    setSelectedId(btns.id);
-                    setVisibleShow(true);
-                }}>
-                    <i className="pi pi-eye"></i> 
-                </button>
-                <button className='btn btn-primary' onClick={() =>{
-                    setSelectedId(btns.id);
-                    setEditUser(true);
-                }}>
-                    <i className="pi pi-user-edit"></i> 
-                </button>
-                <button className='btn btn-danger' onClick={() => deleteConfirmUser(btns.id)}>
-                    <i className="pi pi-trash"></i> 
-                </button>
-            </>
-        );
-    }
+    const openConfirm = (userId) => {
+        setDeleteId(userId);
+        setShowConfirm(true);
+    };
 
     return (
         <div className="main-page">
             <h1>Main Component</h1>
-            <div className='addbtn'>
+            <div className='addbtn mb-3 text-end'>
                 <button className='btn btn-secondary' onClick={() => setAddUser(true)}>
-                    Add-Btn <i className='pi pi-plus'></i>
+                    Add-Btn <i className='bi bi-plus'></i>
                 </button>
             </div>
             <div className='main-list'>
-                <DataTable value={users} stripedRows tableStyle={{ minWidth: '50rem' }}>
-                    <Column field="id" header="ID"></Column>
-                    <Column field="name" header="NAME"></Column>
-                    <Column field="email" header="E-MAIL"></Column>
-                    <Column field="mobile_number" header="MOBILE"></Column>
-                    <Column header="Actions" body={Performactions} className='actionsbtn'></Column>
-                </DataTable>
+                <table className="table table-striped student-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>NAME</th>
+                            <th>E-MAIL</th>
+                            <th>MOBILE</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {users.map(user => (
+                            <tr key={user.id}>
+                                <td>{user.id}</td>
+                                <td>{user.name}</td>
+                                <td>{user.email}</td>
+                                <td>{user.mobile_number}</td>
+                                <td className="student-actions">
+                                    <button className='btn btn-success' onClick={() => {
+                                        setSelectedId(user.id);
+                                        setVisibleShow(true);
+                                    }}>
+                                        <i className="bi bi-eye"></i>
+                                    </button>
+                                    <button className='btn btn-primary' onClick={() => {
+                                        setSelectedId(user.id);
+                                        setEditUser(true);
+                                    }}>
+                                        <i className="bi bi-pencil"></i>
+                                    </button>
+                                    <button className='btn btn-danger' onClick={() => openConfirm(user.id)}>
+                                        <i className="bi bi-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
             </div>
-            <Dialog 
-                header="View-Data"
-                visible={visibleShow} 
-                style={{ width: '50vw' }}
-                onHide={() => setVisibleShow(false)}>
-                <VisibleUser userId={selectedId} />
-            </Dialog>
-            <Dialog 
-                header="Add-Data"
-                visible={addUser} 
-                style={{ width: '50vw' }}
-                onHide={() => setAddUser(false)}>
-                <AddUser setUserAdded={() => {
-                    setAddUser(false);
-                    getAllUsers(); 
-                }} />
-            </Dialog>
-            <Dialog 
-                header="Edit-Data"
-                visible={editUser} 
-                style={{ width: '50vw' }}
-                onHide={() => setEditUser(false)}>
-                <EditUser userId={selectedId} setUserEdited={() => {
-                    setEditUser(false);
-                    getAllUsers();  
-                }} />
-            </Dialog>
-            <ConfirmDialog />
+
+            {/* View Modal */}
+            <div className={`modal fade ${visibleShow ? "show d-block" : ""}`} tabIndex="-1" style={{ background: visibleShow ? "rgba(0,0,0,0.5)" : "none" }}>
+                <div className="modal-dialog modal-lg">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">View-Data</h5>
+                            <button type="button" className="btn-close" onClick={() => setVisibleShow(false)}></button>
+                        </div>
+                        <div className="modal-body">
+                            <VisibleUser userId={selectedId} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Add Modal */}
+            <div className={`modal fade ${addUser ? "show d-block" : ""}`} tabIndex="-1" style={{ background: addUser ? "rgba(0,0,0,0.5)" : "none" }}>
+                <div className="modal-dialog modal-lg">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">Add-Data</h5>
+                            <button type="button" className="btn-close" onClick={() => setAddUser(false)}></button>
+                        </div>
+                        <div className="modal-body">
+                            <AddUser setUserAdded={() => {
+                                setAddUser(false);
+                                getAllUsers();
+                            }} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Edit Modal */}
+            <div className={`modal fade ${editUser ? "show d-block" : ""}`} tabIndex="-1" style={{ background: editUser ? "rgba(0,0,0,0.5)" : "none" }}>
+                <div className="modal-dialog modal-lg">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">Edit-Data</h5>
+                            <button type="button" className="btn-close" onClick={() => setEditUser(false)}></button>
+                        </div>
+                        <div className="modal-body">
+                            <EditUser userId={selectedId} setUserEdited={() => {
+                                setEditUser(false);
+                                getAllUsers();
+                            }} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Confirm Delete Modal */}
+            <div className={`modal fade ${showConfirm ? "show d-block" : ""}`} tabIndex="-1" style={{ background: showConfirm ? "rgba(0,0,0,0.5)" : "none" }}>
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">Confirmation</h5>
+                            <button type="button" className="btn-close" onClick={() => setShowConfirm(false)}></button>
+                        </div>
+                        <div className="modal-body">
+                            <p>Are you sure you want to delete this User data?</p>
+                        </div>
+                        <div className="modal-footer">
+                            <button className="btn btn-secondary" onClick={() => setShowConfirm(false)}>Cancel</button>
+                            <button className="btn btn-danger" onClick={deleteUser}>Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }
 
 
-        

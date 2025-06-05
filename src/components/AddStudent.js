@@ -15,6 +15,7 @@ function AddUser({ setUserAdded }) {
       const response = await api.addstudentData(userInfo);
       if (response) {
         setUserAdded();
+        setUserInfo(initialUser); // Reset form after adding
       }
     } catch (e) {
       console.error(e);
